@@ -1,0 +1,47 @@
+<header class="header">
+    <nav class="menu-navegacion">
+        <a routerLink="/">Inicio</a>
+        <a routerLink="/autos">Autos</a>
+        <a routerLink="/galeria">Galería</a>
+        <a routerLink="/admin">Admin</a>
+    </nav>
+    <h1 class="titulo">Administración de Autos</h1>
+</header>
+
+<main>
+    <section class="admin-panel">
+        <h2>Gestión de Autos</h2>
+        <form (submit)="agregarAuto()">
+            <input type="text" [(ngModel)]="modelo" placeholder="Modelo del auto" required>
+            <input type="text" [(ngModel)]="precio" placeholder="Precio (en CLP)" required>
+            <input type="url" [(ngModel)]="imagen" placeholder="URL de la imagen" required>
+            <button type="submit">Agregar Auto</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let auto of autos; let i = index">
+                    <td>{{ auto.modelo }}</td>
+                    <td>{{ auto.precio }}</td>
+                    <td><img [src]="auto.imagen" [alt]="auto.modelo" style="max-width: 100px;"></td>
+                    <td>
+                        <button (click)="editarAuto(i)">Editar</button>
+                        <button (click)="eliminarAuto(i)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Generalmotors - Todos los derechos reservados</p>
+</footer>

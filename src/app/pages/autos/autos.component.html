@@ -1,0 +1,41 @@
+<header class="header">
+    <nav class="menu-navegacion">
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/autos">Servicio</a>
+      <a routerLink="/galeria">Galeria</a>
+      <a routerLink="/contacto">Contacto</a>
+    </nav>
+    <h1 class="titulo">Nuestros Autos</h1>
+  </header>
+  
+  <main>
+    <section class="search-bar">
+      <input type="text" [(ngModel)]="searchText" placeholder="Buscar autos por nombre...">
+    </section>
+  
+    <section class="gallery">
+      <div class="contenedor">
+        <div *ngFor="let auto of filteredAutos()" class="auto">
+          <img [src]="auto.image" class="img-galeria" [alt]="auto.name">
+          <p>Modelo: <span class="auto-name">{{ auto.name }}</span></p>
+          <p>Precio: {{ auto.price | currency:'CLP':'symbol' }}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer id="footer">
+    <div class="contenedor footer-content">
+      <div class="contact-us">
+        <h2 class="brand">Generalmotors</h2>
+        <p>Expertos en calidad de vehículos</p>
+      </div>
+      <div class="social-media">
+        <a href="#" class="social-media-icon"><i class='bxl-facebook'></i></a>
+        <a href="#" class="social-media-icon"><i class='bxl-instagram'></i></a>
+        <a href="#" class="social-media-icon"><i class='bxl-twitter'></i></a>
+      </div>
+    </div>
+    <div class="line"></div>
+  </footer>
+  

@@ -1,0 +1,59 @@
+<header class="header" id="inicio">
+    <img class="menu1" src="assets/images/menu1.svg" alt="">
+    <nav class="menu-navegacion">
+      <a routerLink="inicio">Inicio</a>
+      <a routerLink="autos">Servicio</a>
+      <a routerLink="galeria">Galeria</a>
+      <a routerLink="admin">Admin</a>
+    </nav>
+    <div class="contenedor head">
+      <h1 class="titulo">Tenemos el auto de tus sueños</h1>
+      <p class="copy">Lorem ipsum, dolo asit</p>
+    </div>
+  </header>
+  
+  <main>
+    <section class="services contenedor" id="servicio">
+      <h2 class="subtitulo">Nuestro servicio</h2>
+      <div class="contenedor-servicio">
+        <div class="service" *ngFor="let auto of autos">
+          <h3 class="n-service">{{ auto.modelo }}</h3>
+          <p>Precio: {{ auto.precio }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="galeria" id="galeria">
+      <div class="contenedor">
+        <h2 class="subtitulo">Galeria</h2>
+        <div class="contenedor-galeria">
+          <img 
+            *ngFor="let auto of autos" 
+            [src]="auto.imagen" 
+            [alt]="auto.modelo" 
+            class="img-galeria">
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer id="footer">
+    <div class="contenedor footer-content">
+      <div class="contact-us">
+        <h2 class="brand">Generalmotors</h2>
+        <p>Expertos en calidad de vehiculos</p>
+      </div>
+      <div class="social-media">
+        <a href="./" class="social-media-icon">
+          <i class='bxl-facebook'></i>
+        </a>
+        <a href="./" class="social-media-icon">
+          <i class='bxl-instagram'></i>
+        </a>
+        <a href="./" class="social-media-icon">
+          <i class='bxl-twitter'></i>
+        </a>
+      </div>
+    </div>
+    <div class="line"></div>
+  </footer>
